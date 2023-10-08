@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Heart Disease Prediction</h1>
+        <p class="instructions">Please enter the values for the following parameters:</p>
+    </header>
+    
+    <form id="prediction-form">
+        <div class="form-row">
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+
+            <!-- Sex -->
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Chest Pain Type -->
+            <div class="form-group">
+                <label for="chestPainType">Chest Pain Type:</label>
+                <select id="chestPainType" name="chestPainType" required>
+                    <option value="1">1 - Typical Angina</option>
+                    <option value="2">2 - Atypical Angina</option>
+                    <option value="3">3 - Non-Anginal Pain</option>
+                    <option value="4">4 - Asymptomatic</option>
+                </select>
+            </div>
+
+            <!-- Resting Blood Pressure -->
+            <div class="form-group">
+                <label for="restingBloodPressure">Resting Blood Pressure (0 - 250):</label>
+                <input type="range" id="restingBloodPressure" name="restingBloodPressure" min="0" max="250">
+                <output for="restingBloodPressure" id="restingBloodPressureValue">0</output>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Cholesterol -->
+            <div class="form-group">
+                <label for="cholesterol">Cholesterol (mg/dl):</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+            </div>
+
+            <!-- Blood Sugar Levels -->
+            <div class="form-group">
+                <label>Blood Sugar Levels on fasting >120 mg/dl:</label>
+                <input type="radio" id="bloodSugarTrue" name="bloodSugar" value="1">
+                <label for="bloodSugarTrue">Yes</label>
+                <input type="radio" id="bloodSugarFalse" name="bloodSugar" value="0">
+                <label for="bloodSugarFalse">No</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Resting ECG -->
+            <div class="form-group">
+                <label for="restingECG">Resting ECG (0, 1, or 2):</label>
+                <select id="restingECG" name="restingECG" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+
+            <!-- Max Heart Rate -->
+            <div class="form-group">
+                <label for="maxHeartRate">Max Heart Rate (60 - 250):</label>
+                <input type="range" id="maxHeartRate" name="maxHeartRate" min="60" max="250">
+                <output for="maxHeartRate" id="maxHeartRateValue">60</output>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Exercise Induced Angina -->
+            <div class="form-group">
+                <label for="exerciseAngina">Exercise Induced Angina:</label>
+                <input type="radio" id="exerciseAnginaFalse" name="exerciseAngina" value="0" required>
+                <label for="exerciseAnginaFalse">0 No</label>
+                <input type="radio" id="exerciseAnginaTrue" name="exerciseAngina" value="1" required>
+                <label for="exerciseAnginaTrue">1 Yes</label>
+            </div>
+
+            <!-- ST depression induced by exercise relative to rest -->
+            <div class="form-group">
+                <label for="exerciseSTDepression">ST depression induced by exercise relative to rest (-5 - 10):</label>
+                <input type="range" id="exerciseSTDepression" name="exerciseSTDepression" step="0.1" min="-5" max="10">
+                <output for="exerciseSTDepression" id="exerciseSTDepressionValue">-5</output>
+            </div>
+        </div>
+
+        <!-- Continue adding more form rows for other parameters following the same pattern -->
+
+        <!-- ... (existing form elements) ... -->
+
+<label for="slopeOfPeakExerciseSTSegment">Slope of Peak Exercise ST Segment:</label>
+<select id="slopeOfPeakExerciseSTSegment" name="slopeOfPeakExerciseSTSegment" required>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+</select>
+
+<label for="numberOfMajorVessels">Number of Major Vessels (0-3):</label>
+<input type="number" id="numberOfMajorVessels" name="numberOfMajorVessels" min="0" max="3" required>
+
+<label for="thal">Thal:</label>
+<select id="thal" name="thal" required>
+    <option value="0">0 - Normal</option>
+    <option value="1">1 - Fixed Defect</option>
+    <option value="2">2 - Reversible Defect</option>
+</select>
+
+<button type="button" onclick="predict()">Predict</button>
+
+
+    </form>
+
+    <div id="result">
+        <!-- Result will be displayed here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
